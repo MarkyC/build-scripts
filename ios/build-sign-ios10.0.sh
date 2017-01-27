@@ -42,14 +42,6 @@ CODE_SIGN_IDENTITY=$APP_CODE_SIGN_IDENTITY \
 PROVISIONING_PROFILE=$APP_PROVISIONING_PROFILE
 
 echo "creating ipa..."
-mkdir -p $APP_IPA_PATH
-xcrun -sdk iphoneos9.3 \
-PackageApplication \
-"$SCRIPTPATH/$APP_ARCHIVE_PATH.xcarchive/Products/Applications/$APP_SCHEME.app" \
--o "$SCRIPTPATH/$APP_IPA_PATH/$APP_SCHEME.ipa" \
---sign $APP_SIGNING_KEY
-
-echo "creating ipa..."
 mkdir -p artifacts/ipa/
 $DEVELOPER_DIR/usr/bin/xcodebuild -exportArchive \
 -archivePath "$SCRIPTPATH/$APP_ARCHIVE_PATH.xcarchive" \
